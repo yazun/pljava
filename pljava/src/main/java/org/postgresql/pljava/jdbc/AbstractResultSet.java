@@ -157,6 +157,7 @@ public abstract class AbstractResultSet implements ResultSet
 		return this.getObject(this.findColumn(columnName));
 	}
 
+	
 	public Object getObject(String columnName, Map map)
 	throws SQLException
 	{
@@ -743,4 +744,26 @@ public abstract class AbstractResultSet implements ResultSet
 		  + ".unwrapClass( Class<?> ) not implemented yet.",
 		  "0A000" );
 	}
+	
+	//1.7 additions
+	public <T> T getObject(String columnName,Class<T> type) 
+	throws SQLException
+	{
+	    throw new SQLFeatureNotSupportedException
+		( this.getClass()
+		  + ".getObject( String, Class<?> ) not implemented yet.",
+		  "0A000" );
+		
+	}
+
+	public <T> T getObject(int idxColumn,Class<T> type) 
+	throws SQLException
+	{
+	    throw new SQLFeatureNotSupportedException
+		( this.getClass()
+		  + ".getObject( int, Class<?> ) not implemented yet.",
+		  "0A000" );
+		
+	}
+
 }
